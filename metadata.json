@@ -1,0 +1,6 @@
+{
+  "name": "Cinematic Developer Portfolio",
+  "description": "An award-winning, high-performance interactive portfolio with custom fluid cursor, cinematic canvas distortion, scroll-triggered text reveals, and high-fidelity transitions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

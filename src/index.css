@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne:wght@400..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-neon-cyan: #ffffff;
+  --color-neon-purple: #c0c0c5;
+  --color-cyber-dark: #050505;
+  --color-cyber-zinc: #0a0a0c;
+  --color-cyber-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Base resets & custom scroll behaviors */
+body {
+  background-color: var(--color-cyber-dark);
+  color: #e5e5e5;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Hide default cursor on desktop for custom animated cursor */
+@media (min-width: 1024px) {
+  body, a, button, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cyber-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  border: 1px solid var(--color-cyber-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Scroll-triggered reveal styles */
+.reveal-text {
+  background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom layout patterns */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+.glow-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-hover::before {
+  content: '';
+  position: absolute;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glow-hover:hover::before {
+  opacity: 1;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.15;
+}
+
+/* Custom text layout */
+.no-select {
+  user-select: none;
+}
